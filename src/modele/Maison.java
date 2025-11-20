@@ -1,4 +1,4 @@
-package modele.src;
+package src.modele;
 /**
  * Classe représentant une maison consommant de l'électricité.
  */
@@ -14,7 +14,7 @@ public class Maison {
 
         private final int kW;
 
-        Consommation(int kW) {
+       private Consommation(int kW) {
             this.kW = kW;
         }
 
@@ -74,5 +74,14 @@ public class Maison {
                 ", consommation=" + consommation +
                 ", consommationEnKW=" + consommationEnKW() + " kW" +
                 '}';
+    }
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Maison maison = (Maison) obj;
+        return nom.equals(maison.nom);
+    }
+    public int hashCode() {
+        return nom.hashCode();
     }
 }
